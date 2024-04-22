@@ -71,7 +71,7 @@ const SignIn = () => {
           <p>
             Dont Have an account?{" "}
             <span className="text-blue-700">
-              <Link to={"/sign-in"}>Sign up</Link>
+              <Link to={"/sign-up"}>Sign up</Link>
             </span>
           </p>
         </div>
