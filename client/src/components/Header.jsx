@@ -1,7 +1,9 @@
 import { IoSearchOutline } from "react-icons/io5";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const { currentUser } = useSelector((state) => state.user);
   return (
     <div>
       <header className="font-poppins p-3 px-10 flex bg-[#222831] gap-3 justify-between flex-wrap text-white items-center">
@@ -24,11 +26,21 @@ const Header = () => {
           <Link to={"/about"}>
             <li className="hidden sm:inline hover:opacity-95">About</li>
           </Link>
-          <Link to={"/profile"}>
-            <li className="bg-blue-500 px-2 py-0.5 rounded-md hover:opacity-95">
-              Sign in
-            </li>
-          </Link>
+          {currentUser ? (
+            <Link to={"/profile"}>
+              <img
+                src={currentUser.profilePicture}
+                className="rounded-full w-10"
+                alt="avatar"
+              />
+            </Link>
+          ) : (
+            <Link to={"/sign-in"}>
+              <li className="bg-blue-500 px-2 py-0.5 rounded-md hover:opacity-95">
+                Sign in
+              </li>
+            </Link>
+          )}
         </ul>
       </header>
     </div>
