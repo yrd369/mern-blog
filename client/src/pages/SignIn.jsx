@@ -6,6 +6,7 @@ import {
   signInFailure,
 } from "../redux/user/userSlice";
 import { useDispatch, useSelector } from "react-redux";
+import OAuth from "../components/OAuth";
 
 const SignIn = () => {
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const SignIn = () => {
     }
     try {
       dispatch(signInStart());
-      const res = await fetch("http://localhost:3000/api/auth/signin", {
+      const res = await fetch("http://localhost:3000/api/auth/google", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -66,6 +67,7 @@ const SignIn = () => {
           >
             {loading ? "loading" : "Sign In"}
           </button>
+          <OAuth />
         </form>
         <div className="mt-5">
           <p>
