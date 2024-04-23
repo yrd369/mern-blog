@@ -27,7 +27,7 @@ const Header = () => {
             <li className="hidden sm:inline hover:opacity-95">About</li>
           </Link>
           {currentUser ? (
-            <Link to={"/profile"}>
+            <Link to={"/dashboard"}>
               <img
                 src={currentUser.profilePicture}
                 className="rounded-full w-10"
